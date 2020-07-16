@@ -1,8 +1,9 @@
 import React from 'react';
+import './../assets/styles/styles.css';
 
 function Ball() {
   return(
-    <h1>This is the ball component</h1>
+    <div className="Ball">1</div>
   );
 }
 
