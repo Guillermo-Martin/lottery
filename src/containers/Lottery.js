@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Ball from './../components/Ball';
+import './../assets/styles/styles.css';
 
 class Lottery extends Component {
   static defaultProps = {
@@ -39,15 +40,18 @@ class Lottery extends Component {
   render() {
 
     return (
-      <div>
+      <div className="Lottery">
         {/* Title */}
-        <h1>{this.props.title}</h1>
-        
-        {/* Display balls */}
-        {this.state.numbers}
+        <h1 className="Lottery-title">{this.props.title}</h1>
 
+        {/* Display balls */}
+        <div className="Lottery-balls">
+          {this.state.numbers}
+        </div>
+        
+        
         {/* Button */}
-        <button onClick={this.createBall}>Generate</button>
+        <button onClick={this.createBall} className="Lottery-button">Generate</button>
       </div>
     );
   }

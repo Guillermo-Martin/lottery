@@ -9,4 +9,30 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-left: 10px;
 }
+
+.Lottery {
+  border: 1px solid black;
+  width: 30%;
+  margin: 0 auto;
+  margin-top: 2%;
+  text-align: center;
+}
+
+.Lottery-title, .Lottery-balls {
+  display: flex;
+  justify-content: center;
+}
+
+.Lottery-button {
+  margin-top: 5%;
+  margin-bottom: 5%;
+  height: 2rem;
+  width: 25%; 
+  border-radius: 20px;
+  background-color: blue;
+  color: white;
+}
+
+
