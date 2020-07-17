@@ -1,9 +1,9 @@
 import React from 'react';
 import './../assets/styles/styles.css';
 
-function Ball() {
+function Ball(props) {
   return(
-    <div className="Ball">1</div>
+    <div className="Ball">{props.number}</div>
   );
 }
 

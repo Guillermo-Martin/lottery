@@ -3,47 +3,49 @@ import Ball from './../components/Ball';
 
 class Lottery extends Component {
   static defaultProps = {
-    title: "Lottery"
+    title: "Lottery",
   }
 
   state = {
     numbers: ""
   }
-  
-  genRandomNums = () => {
-    // create an array to hold all the numbers
-    let randomNumbers = [];
-    // loop through and push a random number into the array
 
-    // generate a random number between 1 and 40 (for 6 balls)
-    // let randomNum = Math.floor(Math.random() * 40) + 1;
+  createBall = () => {
+    // create array to hold random numbers
+    let ballNumbers = [];
 
-    // push the random number into the numbers array
-    // this.setState({numbers: [...this.state.numbers, randomNum]})
-
-    // console.log(this.state.numbers);
-    for(let i = 0; i < 6; i++) {
+    // create 6 random numbers
+    for(let i = 1; i < 7; i++) {
+      // generate a random number;
       let randomNum = Math.floor(Math.random() * 40) + 1;
-      randomNumbers.push(randomNum)
+      // push random number into the ballNumbers array
+      ballNumbers.push(randomNum);
     }
 
-    console.log(randomNumbers);
+    // create an array to hold all the balls using .map()
+    // create a ball for every number in the ballNumbers array
+    let balls = ballNumbers.map(num =>
+      <Ball number={num} />  
+    );
+    // console.log(ballNumbers);
+    // console.log(balls)
+
+    // change the state to be the balls array
+    this.setState({numbers: balls});
   }
 
   render() {
-    // display the number of balls based on the number passed into props
-    // create an array that will hold numbers
-    // let num = [1, 2, 3, 4, 5];
-    // for each number, create a ball
-    // let numBalls = num.map(number => 
-    //     <Ball />
-    // );
 
     return (
       <div>
+        {/* Title */}
         <h1>{this.props.title}</h1>
-        {/* {numBalls} */}
-        <button onClick={this.genRandomNums}>Generate</button>
+
+        {/* Display balls */}
+        {this.state.numbers}
+
+        {/* Button */}
+        <button onClick={this.createBall}>Generate</button>
       </div>
     );
   }
