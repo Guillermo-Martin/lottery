@@ -4,20 +4,24 @@ import Ball from './../components/Ball';
 class Lottery extends Component {
   static defaultProps = {
     title: "Lottery",
+    numBalls: 6,
+    maxNum: 40
   }
 
   state = {
-    numbers: ""
+    numbers: [
+      <Ball/>, <Ball/>, <Ball/>, <Ball/>, <Ball/>, <Ball/>,
+    ],
   }
 
   createBall = () => {
     // create array to hold random numbers
     let ballNumbers = [];
 
-    // create 6 random numbers
-    for(let i = 1; i < 7; i++) {
-      // generate a random number;
-      let randomNum = Math.floor(Math.random() * 40) + 1;
+    // create X random numbers based on numBalls passed in as props
+    for(let i = 0; i < this.props.numBalls; i++) {
+      // generate a random number based on maxNum passed in as props;
+      let randomNum = Math.floor(Math.random() * this.props.maxNum) + 1;
       // push random number into the ballNumbers array
       ballNumbers.push(randomNum);
     }
@@ -27,8 +31,6 @@ class Lottery extends Component {
     let balls = ballNumbers.map(num =>
       <Ball number={num} />  
     );
-    // console.log(ballNumbers);
-    // console.log(balls)
 
     // change the state to be the balls array
     this.setState({numbers: balls});
@@ -40,7 +42,7 @@ class Lottery extends Component {
       <div>
         {/* Title */}
         <h1>{this.props.title}</h1>
-
+        
         {/* Display balls */}
         {this.state.numbers}
 
